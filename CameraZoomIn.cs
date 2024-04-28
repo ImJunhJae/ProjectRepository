@@ -21,7 +21,7 @@ public class CameraZoomIn : MonoBehaviour
 
     void Update()
     {
-        Denug.Log("된건가..?");
+        
     }
 
     IEnumerator delayTime()
