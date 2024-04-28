@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CameraZoomIn : MonoBehaviour
 {
-    public Camera camera; //Ä«¸Þ¶ó °´Ã¼
-    public GameObject player;  //ÇÃ·¹ÀÌ¾î °´Ã¼
+    public Camera camera; //ì¹´ë©”ë¼ ê°ì²´
+    public GameObject player;  //í”Œë ˆì´ì–´ ê°ì²´
 
-    public float speed = 0.5f; //¹Ù²ð ¿òÁ÷ÀÏ ¼Óµµ
-    public float cameraSize = 5f;  //¾ó¸¸Å­ Ä«¸Þ¶ó¸¦ ÁÜÀÎ ÇÒÁö
+    public float speed = 0.5f; //ë°”ë€” ì›€ì§ì¼ ì†ë„
+    public float cameraSize = 5f;  //ì–¼ë§Œí¼ ì¹´ë©”ë¼ë¥¼ ì¤Œì¸ í• ì§€
 
-//¾ó¸¶¸¸Å­ Áõ°¡ °¨¼ÒÇÒÁö ¼³Á¤
+//ì–¼ë§ˆë§Œí¼ ì¦ê°€ ê°ì†Œí• ì§€ ì„¤ì •
     public float MaxSize = 10f;
     public float MinSize = -5f;
 
@@ -21,40 +21,40 @@ public class CameraZoomIn : MonoBehaviour
 
     void Update()
     {
-        
+        Denug.Log("ëœê±´ê°€..?");
     }
 
     IEnumerator delayTime()
     {
-        Debug.Log("±â´Ù·Ç!");
+        Debug.Log("ê¸°ë‹¤ë ·!");
         yield return new WaitForSeconds(3);
-        //ÁÜÀÎ ÁÜ¾Æ¿ô ÃÖ´ë ÃÖ¼Ò°ª ¼³Á¤.
+        //ì¤Œì¸ ì¤Œì•„ì›ƒ ìµœëŒ€ ìµœì†Œê°’ ì„¤ì •.
         if (cameraSize >= MaxSize)
             cameraSize = MaxSize;
         if (cameraSize <= MinSize)
             cameraSize = MinSize;
 
-        //cameraSize = 5f + player.transform.position.y; //Ä³¸¯ÅÍ°¡ Á¡ÇÁÇÒ ¶§¸¶´Ù Ä«¸Þ¶ó ÁÜÀÎ,ÁÜ¾Æ¿ô.
+        //cameraSize = 5f + player.transform.position.y; //ìºë¦­í„°ê°€ ì í”„í•  ë•Œë§ˆë‹¤ ì¹´ë©”ë¼ ì¤Œì¸,ì¤Œì•„ì›ƒ.
         camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, cameraSize, Time.deltaTime / speed);
-        //Time.deltaTime*2 ÀÇ ½Ã°£¸¸Å­ °ªÀÇ º¯È­¸¦ ÁØ´Ù. 
-        Debug.Log("Á¶±Ý °¬´å!");
+        //Time.deltaTime*2 ì˜ ì‹œê°„ë§Œí¼ ê°’ì˜ ë³€í™”ë¥¼ ì¤€ë‹¤. 
+        Debug.Log("ì¡°ê¸ˆ ê°”ë‹·!");
         yield return null;
-        Debug.Log("ÄÚ·çÆ¾ ³¡!!");
+        Debug.Log("ì½”ë£¨í‹´ ë!!");
         //zoomIn();
-        //Debug.Log("ÁÜ ´Ù½Ã °£´å!!!");
+        //Debug.Log("ì¤Œ ë‹¤ì‹œ ê°„ë‹·!!!");
     }
 
     void zoomIn()
     {
-        Debug.Log("°£¤§¾Æ¾Æ¤¿¾Æ¾Æ¤¿¤¿¤¿");
-        //ÁÜÀÎ ÁÜ¾Æ¿ô ÃÖ´ë ÃÖ¼Ò°ª ¼³Á¤.
+        Debug.Log("ê°„ã„·ì•„ì•„ã…ì•„ì•„ã…ã…ã…");
+        //ì¤Œì¸ ì¤Œì•„ì›ƒ ìµœëŒ€ ìµœì†Œê°’ ì„¤ì •.
         if (cameraSize >= MaxSize)
             cameraSize = MaxSize;
         if (cameraSize <= MinSize)
             cameraSize = MinSize;
 
-        //cameraSize = 5f + player.transform.position.y; //Ä³¸¯ÅÍ°¡ Á¡ÇÁÇÒ ¶§¸¶´Ù Ä«¸Þ¶ó ÁÜÀÎ,ÁÜ¾Æ¿ô.
+        //cameraSize = 5f + player.transform.position.y; //ìºë¦­í„°ê°€ ì í”„í•  ë•Œë§ˆë‹¤ ì¹´ë©”ë¼ ì¤Œì¸,ì¤Œì•„ì›ƒ.
         camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, cameraSize, Time.deltaTime / speed);
-        //Time.deltaTime*2 ÀÇ ½Ã°£¸¸Å­ °ªÀÇ º¯È­¸¦ ÁØ´Ù. 
+        //Time.deltaTime*2 ì˜ ì‹œê°„ë§Œí¼ ê°’ì˜ ë³€í™”ë¥¼ ì¤€ë‹¤. 
     }
 }
